@@ -1,0 +1,7 @@
+#tworzenie wirtualnej maszyny
+python -m venv venv
+
+#aktywacja wirtualnej maszyny
+.\venv\Scripts\activate
+
+deactivate
