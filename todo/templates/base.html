@@ -55,6 +55,8 @@
 				<div style="margin-top: 20px; border: thin solid black" class="ui left aligned container">
 
 					<p class="ui big header"> Task: {{ task.title }}</p>
+					<p style="margin: 0; font-size: 12px;">{{task.created.strftime('%d.%m.%Y - %H:%M:%S')}}</p>
+					<p style="margin: 0; font-size: 12px;">{{task.updated.strftime('%d.%m.%Y - %H:%M:%S')}}</p>
 					<p>Description: {{ task.desc }}</p>
 
 					{% if task.category == "work" %}
@@ -83,6 +85,8 @@
 				<div style="margin-top: 20px; border: thin solid black" class="ui left aligned container">
 
 					<p class="ui big header"> Task: {{ task.title }}</p>
+					<p style="margin: 0; font-size: 12px;">{{task.created.strftime('%d.%m.%Y - %H:%M:%S')}}</p>
+					<p style="margin: 0; font-size: 12px;">{{task.updated.strftime('%d.%m.%Y - %H:%M:%S')}}</p>
 					<p>Description: {{ task.desc }}</p>
 					{% if task.category == "work" %}
 					<span style="margin-bottom: 2px;" class="ui red label">Work</span>

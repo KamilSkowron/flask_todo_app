@@ -1,10 +1,12 @@
 from todo import app, render_template, request, redirect, url_for
 from todo.models import TodoModel, db
+from datetime import datetime
+
 
 
 @app.route('/')
 def home_page():
-
+    
     todo_list = TodoModel.query.all()
     completed_list = TodoModel.query.filter_by(is_completed=True)
     not_completed_list = TodoModel.query.filter_by(is_completed=False)
@@ -17,6 +19,7 @@ def home_page():
 @app.route('/add', methods=['POST'])
 def add():
     # add new item
+
     title = request.form.get("title")
     desc = request.form.get("desc")
     category = request.form.get("category")
@@ -31,6 +34,7 @@ def update(todo_id):
     # update item
     task = TodoModel.query.filter_by(id=todo_id).first()
     task.is_completed = not task.is_completed
+    task.updated = datetime.utcnow()
     db.session.commit()
     return redirect(url_for("home_page"))
 
